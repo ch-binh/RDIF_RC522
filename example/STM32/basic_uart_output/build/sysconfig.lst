@@ -1,0 +1,207 @@
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccbQfDcB.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"sysconfig.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "Src/sysconfig.c"
+  18              		.section	.text.SystemClock_Config,"ax",%progbits
+  19              		.align	1
+  20              		.global	SystemClock_Config
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	SystemClock_Config:
+  26              	.LFB65:
+   1:Src/sysconfig.c **** #include "../Inc/sysconfig.h"
+   2:Src/sysconfig.c **** 
+   3:Src/sysconfig.c **** /**
+   4:Src/sysconfig.c ****   * @brief System Clock Configuration
+   5:Src/sysconfig.c ****   * @retval None
+   6:Src/sysconfig.c ****   */
+   7:Src/sysconfig.c ****  void SystemClock_Config(void)
+   8:Src/sysconfig.c ****  {
+  27              		.loc 1 8 2 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 64
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 00B5     		push	{lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 4
+  34              		.cfi_offset 14, -4
+  35 0002 91B0     		sub	sp, sp, #68
+  36              	.LCFI1:
+  37              		.cfi_def_cfa_offset 72
+   9:Src/sysconfig.c ****    RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  38              		.loc 1 9 4 view .LVU1
+  39              		.loc 1 9 23 is_stmt 0 view .LVU2
+  40 0004 2822     		movs	r2, #40
+  41 0006 0021     		movs	r1, #0
+  42 0008 06A8     		add	r0, sp, #24
+  43 000a FFF7FEFF 		bl	memset
+  44              	.LVL0:
+  10:Src/sysconfig.c ****    RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  45              		.loc 1 10 4 is_stmt 1 view .LVU3
+  46              		.loc 1 10 23 is_stmt 0 view .LVU4
+  47 000e 0023     		movs	r3, #0
+  48 0010 0193     		str	r3, [sp, #4]
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccbQfDcB.s 			page 2
+
+
+  49 0012 0293     		str	r3, [sp, #8]
+  50 0014 0393     		str	r3, [sp, #12]
+  51 0016 0493     		str	r3, [sp, #16]
+  52 0018 0593     		str	r3, [sp, #20]
+  11:Src/sysconfig.c ****  
+  12:Src/sysconfig.c ****    /** Initializes the RCC Oscillators according to the specified parameters
+  13:Src/sysconfig.c ****    * in the RCC_OscInitTypeDef structure.
+  14:Src/sysconfig.c ****    */
+  15:Src/sysconfig.c ****    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  53              		.loc 1 15 4 is_stmt 1 view .LVU5
+  54              		.loc 1 15 37 is_stmt 0 view .LVU6
+  55 001a 0122     		movs	r2, #1
+  56 001c 0692     		str	r2, [sp, #24]
+  16:Src/sysconfig.c ****    RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  57              		.loc 1 16 4 is_stmt 1 view .LVU7
+  58              		.loc 1 16 31 is_stmt 0 view .LVU8
+  59 001e 4FF48033 		mov	r3, #65536
+  60 0022 0793     		str	r3, [sp, #28]
+  17:Src/sysconfig.c ****    RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
+  61              		.loc 1 17 4 is_stmt 1 view .LVU9
+  18:Src/sysconfig.c ****    RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  62              		.loc 1 18 4 view .LVU10
+  63              		.loc 1 18 31 is_stmt 0 view .LVU11
+  64 0024 0A92     		str	r2, [sp, #40]
+  19:Src/sysconfig.c ****    RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  65              		.loc 1 19 4 is_stmt 1 view .LVU12
+  66              		.loc 1 19 35 is_stmt 0 view .LVU13
+  67 0026 0222     		movs	r2, #2
+  68 0028 0D92     		str	r2, [sp, #52]
+  20:Src/sysconfig.c ****    RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  69              		.loc 1 20 4 is_stmt 1 view .LVU14
+  70              		.loc 1 20 36 is_stmt 0 view .LVU15
+  71 002a 0E93     		str	r3, [sp, #56]
+  21:Src/sysconfig.c ****    RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
+  72              		.loc 1 21 4 is_stmt 1 view .LVU16
+  73              		.loc 1 21 33 is_stmt 0 view .LVU17
+  74 002c 4FF4E013 		mov	r3, #1835008
+  75 0030 0F93     		str	r3, [sp, #60]
+  22:Src/sysconfig.c ****    if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  76              		.loc 1 22 4 is_stmt 1 view .LVU18
+  77              		.loc 1 22 8 is_stmt 0 view .LVU19
+  78 0032 06A8     		add	r0, sp, #24
+  79 0034 FFF7FEFF 		bl	HAL_RCC_OscConfig
+  80              	.LVL1:
+  81              		.loc 1 22 7 view .LVU20
+  82 0038 80B9     		cbnz	r0, .L5
+  83              	.L2:
+  23:Src/sysconfig.c ****    {
+  24:Src/sysconfig.c ****      Error_Handler();
+  25:Src/sysconfig.c ****    }
+  26:Src/sysconfig.c ****  
+  27:Src/sysconfig.c ****    /** Initializes the CPU, AHB and APB buses clocks
+  28:Src/sysconfig.c ****    */
+  29:Src/sysconfig.c ****    RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+  84              		.loc 1 29 4 is_stmt 1 view .LVU21
+  85              		.loc 1 29 32 is_stmt 0 view .LVU22
+  86 003a 0F23     		movs	r3, #15
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccbQfDcB.s 			page 3
+
+
+  87 003c 0193     		str	r3, [sp, #4]
+  30:Src/sysconfig.c ****                                |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  31:Src/sysconfig.c ****    RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  88              		.loc 1 31 4 is_stmt 1 view .LVU23
+  89              		.loc 1 31 35 is_stmt 0 view .LVU24
+  90 003e 0221     		movs	r1, #2
+  91 0040 0291     		str	r1, [sp, #8]
+  32:Src/sysconfig.c ****    RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  92              		.loc 1 32 4 is_stmt 1 view .LVU25
+  93              		.loc 1 32 36 is_stmt 0 view .LVU26
+  94 0042 0023     		movs	r3, #0
+  95 0044 0393     		str	r3, [sp, #12]
+  33:Src/sysconfig.c ****    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+  96              		.loc 1 33 4 is_stmt 1 view .LVU27
+  97              		.loc 1 33 37 is_stmt 0 view .LVU28
+  98 0046 4FF48062 		mov	r2, #1024
+  99 004a 0492     		str	r2, [sp, #16]
+  34:Src/sysconfig.c ****    RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 100              		.loc 1 34 4 is_stmt 1 view .LVU29
+ 101              		.loc 1 34 37 is_stmt 0 view .LVU30
+ 102 004c 0593     		str	r3, [sp, #20]
+  35:Src/sysconfig.c ****  
+  36:Src/sysconfig.c ****    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+ 103              		.loc 1 36 4 is_stmt 1 view .LVU31
+ 104              		.loc 1 36 8 is_stmt 0 view .LVU32
+ 105 004e 01A8     		add	r0, sp, #4
+ 106 0050 FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 107              	.LVL2:
+ 108              		.loc 1 36 7 view .LVU33
+ 109 0054 28B9     		cbnz	r0, .L6
+ 110              	.L1:
+  37:Src/sysconfig.c ****    {
+  38:Src/sysconfig.c ****      Error_Handler();
+  39:Src/sysconfig.c ****    }
+  40:Src/sysconfig.c ****  }...
+ 111              		.loc 1 40 2 view .LVU34
+ 112 0056 11B0     		add	sp, sp, #68
+ 113              	.LCFI2:
+ 114              		.cfi_remember_state
+ 115              		.cfi_def_cfa_offset 4
+ 116              		@ sp needed
+ 117 0058 5DF804FB 		ldr	pc, [sp], #4
+ 118              	.L5:
+ 119              	.LCFI3:
+ 120              		.cfi_restore_state
+  24:Src/sysconfig.c ****      Error_Handler();
+ 121              		.loc 1 24 6 is_stmt 1 view .LVU35
+ 122 005c FFF7FEFF 		bl	Error_Handler
+ 123              	.LVL3:
+ 124 0060 EBE7     		b	.L2
+ 125              	.L6:
+  38:Src/sysconfig.c ****      Error_Handler();
+ 126              		.loc 1 38 6 view .LVU36
+ 127 0062 FFF7FEFF 		bl	Error_Handler
+ 128              	.LVL4:
+ 129              		.loc 1 40 2 is_stmt 0 view .LVU37
+ 130 0066 F6E7     		b	.L1
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccbQfDcB.s 			page 4
+
+
+ 131              		.cfi_endproc
+ 132              	.LFE65:
+ 134              		.text
+ 135              	.Letext0:
+ 136              		.file 2 "C:\\ST\\STM32CubeCLT_1.17.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/12.3.1/..
+ 137              		.file 3 "C:\\ST\\STM32CubeCLT_1.17.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/12.3.1/..
+ 138              		.file 4 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 139              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h"
+ 140              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h"
+ 141              		.file 7 "Src/../Inc/main.h"
+ 142              		.file 8 "<built-in>"
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccbQfDcB.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 sysconfig.c
+C:\Users\binhp\AppData\Local\Temp\ccbQfDcB.s:19     .text.SystemClock_Config:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccbQfDcB.s:25     .text.SystemClock_Config:00000000 SystemClock_Config
+
+UNDEFINED SYMBOLS
+memset
+HAL_RCC_OscConfig
+HAL_RCC_ClockConfig
+Error_Handler
