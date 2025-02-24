@@ -22,7 +22,8 @@ build/main.o: Src/main.c Inc/main.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h Inc/spi.h \
- Inc/main.h Inc/usart.h Inc/gpio.h Inc/sysconfig.h Inc/board_config.h
+ Inc/main.h Inc/usart.h Inc/gpio.h Inc/sysconfig.h Inc/board_config.h \
+ Src/../../../../inc/rc522.h Src/../../../../inc/rc522_cfg.h
 Inc/main.h:
 Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 Inc/stm32f1xx_hal_conf.h:
@@ -55,3 +56,5 @@ Inc/usart.h:
 Inc/gpio.h:
 Inc/sysconfig.h:
 Inc/board_config.h:
+Src/../../../../inc/rc522.h:
+Src/../../../../inc/rc522_cfg.h:

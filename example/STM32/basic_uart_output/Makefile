@@ -60,7 +60,7 @@ Src/sysmem.c \
 Src/syscalls.c  \
 Src/sysconfig.c	\
 ../../../src/rc522.c	\
-../../../src/rc522_spi.c
+../../../src/rc522_cfg.c
 
 # ASM sources
 ASM_SOURCES =  \

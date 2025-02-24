@@ -1,0 +1,354 @@
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"rc522_cfg.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "../../../src/rc522_cfg.c"
+  18              		.section	.text.rc522_set_spi_spec,"ax",%progbits
+  19              		.align	1
+  20              		.global	rc522_set_spi_spec
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	rc522_set_spi_spec:
+  26              	.LVL0:
+  27              	.LFB0:
+   1:../../../src/rc522_cfg.c **** // example of init ""
+   2:../../../src/rc522_cfg.c **** /*
+   3:../../../src/rc522_cfg.c **** 
+   4:../../../src/rc522_cfg.c **** void rc522_init(void) {
+   5:../../../src/rc522_cfg.c ****   rc522_spi_ops_t ops = {
+   6:../../../src/rc522_cfg.c ****       .spi_write = stm32_spi_write, // replace this
+   7:../../../src/rc522_cfg.c ****       .spi_read = stm32_spi_read  // replace this
+   8:../../../src/rc522_cfg.c ****   };
+   9:../../../src/rc522_cfg.c ****   rc522_set_spi_spec(&ops);
+  10:../../../src/rc522_cfg.c **** }
+  11:../../../src/rc522_cfg.c **** 
+  12:../../../src/rc522_cfg.c **** */
+  13:../../../src/rc522_cfg.c **** 
+  14:../../../src/rc522_cfg.c **** #include "../inc/rc522_cfg.h"
+  15:../../../src/rc522_cfg.c **** 
+  16:../../../src/rc522_cfg.c **** static rc522_ops_t spi_ops;
+  17:../../../src/rc522_cfg.c **** 
+  18:../../../src/rc522_cfg.c **** void rc522_set_spi_spec(rc522_ops_t *ops)
+  19:../../../src/rc522_cfg.c **** {
+  28              		.loc 1 19 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              		.loc 1 19 1 is_stmt 0 view .LVU1
+  34 0000 10B4     		push	{r4}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 4
+  37              		.cfi_offset 4, -4
+  20:../../../src/rc522_cfg.c ****     spi_ops = *ops; // Copy the function pointers
+  38              		.loc 1 20 5 is_stmt 1 view .LVU2
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s 			page 2
+
+
+  39              		.loc 1 20 13 is_stmt 0 view .LVU3
+  40 0002 034C     		ldr	r4, .L3
+  41 0004 0FC8     		ldm	r0, {r0, r1, r2, r3}
+  42              	.LVL1:
+  43              		.loc 1 20 13 view .LVU4
+  44 0006 84E80F00 		stm	r4, {r0, r1, r2, r3}
+  21:../../../src/rc522_cfg.c **** }
+  45              		.loc 1 21 1 view .LVU5
+  46 000a 10BC     		pop	{r4}
+  47              	.LCFI1:
+  48              		.cfi_restore 4
+  49              		.cfi_def_cfa_offset 0
+  50 000c 7047     		bx	lr
+  51              	.L4:
+  52 000e 00BF     		.align	2
+  53              	.L3:
+  54 0010 00000000 		.word	spi_ops
+  55              		.cfi_endproc
+  56              	.LFE0:
+  58              		.section	.text.rc522_spi_read_reg,"ax",%progbits
+  59              		.align	1
+  60              		.global	rc522_spi_read_reg
+  61              		.syntax unified
+  62              		.thumb
+  63              		.thumb_func
+  65              	rc522_spi_read_reg:
+  66              	.LVL2:
+  67              	.LFB1:
+  22:../../../src/rc522_cfg.c **** 
+  23:../../../src/rc522_cfg.c **** int rc522_spi_read_reg(uint8_t reg, uint8_t *data, uint8_t size)
+  24:../../../src/rc522_cfg.c **** {
+  68              		.loc 1 24 1 is_stmt 1 view -0
+  69              		.cfi_startproc
+  70              		@ args = 0, pretend = 0, frame = 0
+  71              		@ frame_needed = 0, uses_anonymous_args = 0
+  72              		.loc 1 24 1 is_stmt 0 view .LVU7
+  73 0000 08B5     		push	{r3, lr}
+  74              	.LCFI2:
+  75              		.cfi_def_cfa_offset 8
+  76              		.cfi_offset 3, -8
+  77              		.cfi_offset 14, -4
+  25:../../../src/rc522_cfg.c ****     if (spi_ops.spi_read)
+  78              		.loc 1 25 5 is_stmt 1 view .LVU8
+  79              		.loc 1 25 16 is_stmt 0 view .LVU9
+  80 0002 044B     		ldr	r3, .L9
+  81 0004 5B68     		ldr	r3, [r3, #4]
+  82              		.loc 1 25 8 view .LVU10
+  83 0006 0BB1     		cbz	r3, .L7
+  26:../../../src/rc522_cfg.c ****     {
+  27:../../../src/rc522_cfg.c ****         return spi_ops.spi_read(reg, data, size);
+  84              		.loc 1 27 9 is_stmt 1 view .LVU11
+  85              		.loc 1 27 16 is_stmt 0 view .LVU12
+  86 0008 9847     		blx	r3
+  87              	.LVL3:
+  88              	.L5:
+  28:../../../src/rc522_cfg.c ****     }
+  29:../../../src/rc522_cfg.c ****     return -1; // Error: function not set
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s 			page 3
+
+
+  30:../../../src/rc522_cfg.c **** }
+  89              		.loc 1 30 1 view .LVU13
+  90 000a 08BD     		pop	{r3, pc}
+  91              	.LVL4:
+  92              	.L7:
+  29:../../../src/rc522_cfg.c **** }
+  93              		.loc 1 29 12 view .LVU14
+  94 000c 4FF0FF30 		mov	r0, #-1
+  95              	.LVL5:
+  29:../../../src/rc522_cfg.c **** }
+  96              		.loc 1 29 12 view .LVU15
+  97 0010 FBE7     		b	.L5
+  98              	.L10:
+  99 0012 00BF     		.align	2
+ 100              	.L9:
+ 101 0014 00000000 		.word	spi_ops
+ 102              		.cfi_endproc
+ 103              	.LFE1:
+ 105              		.section	.text.rc522_spi_write_reg,"ax",%progbits
+ 106              		.align	1
+ 107              		.global	rc522_spi_write_reg
+ 108              		.syntax unified
+ 109              		.thumb
+ 110              		.thumb_func
+ 112              	rc522_spi_write_reg:
+ 113              	.LVL6:
+ 114              	.LFB2:
+  31:../../../src/rc522_cfg.c **** 
+  32:../../../src/rc522_cfg.c **** int rc522_spi_write_reg(uint8_t reg, uint8_t *data, uint8_t size)
+  33:../../../src/rc522_cfg.c **** {
+ 115              		.loc 1 33 1 is_stmt 1 view -0
+ 116              		.cfi_startproc
+ 117              		@ args = 0, pretend = 0, frame = 0
+ 118              		@ frame_needed = 0, uses_anonymous_args = 0
+ 119              		.loc 1 33 1 is_stmt 0 view .LVU17
+ 120 0000 08B5     		push	{r3, lr}
+ 121              	.LCFI3:
+ 122              		.cfi_def_cfa_offset 8
+ 123              		.cfi_offset 3, -8
+ 124              		.cfi_offset 14, -4
+  34:../../../src/rc522_cfg.c ****     if (spi_ops.spi_write)
+ 125              		.loc 1 34 5 is_stmt 1 view .LVU18
+ 126              		.loc 1 34 16 is_stmt 0 view .LVU19
+ 127 0002 044B     		ldr	r3, .L15
+ 128 0004 1B68     		ldr	r3, [r3]
+ 129              		.loc 1 34 8 view .LVU20
+ 130 0006 13B1     		cbz	r3, .L13
+  35:../../../src/rc522_cfg.c ****     {
+  36:../../../src/rc522_cfg.c ****         spi_ops.spi_write(reg, data, size);
+ 131              		.loc 1 36 9 is_stmt 1 view .LVU21
+ 132 0008 9847     		blx	r3
+ 133              	.LVL7:
+  37:../../../src/rc522_cfg.c ****         return 0;
+ 134              		.loc 1 37 9 view .LVU22
+ 135              		.loc 1 37 16 is_stmt 0 view .LVU23
+ 136 000a 0020     		movs	r0, #0
+ 137              	.L11:
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s 			page 4
+
+
+  38:../../../src/rc522_cfg.c ****     }
+  39:../../../src/rc522_cfg.c ****     return -1; // Error: function not set
+  40:../../../src/rc522_cfg.c **** }
+ 138              		.loc 1 40 1 view .LVU24
+ 139 000c 08BD     		pop	{r3, pc}
+ 140              	.LVL8:
+ 141              	.L13:
+  39:../../../src/rc522_cfg.c **** }
+ 142              		.loc 1 39 12 view .LVU25
+ 143 000e 4FF0FF30 		mov	r0, #-1
+ 144              	.LVL9:
+  39:../../../src/rc522_cfg.c **** }
+ 145              		.loc 1 39 12 view .LVU26
+ 146 0012 FBE7     		b	.L11
+ 147              	.L16:
+ 148              		.align	2
+ 149              	.L15:
+ 150 0014 00000000 		.word	spi_ops
+ 151              		.cfi_endproc
+ 152              	.LFE2:
+ 154              		.section	.text.rc522_rst_pin_write,"ax",%progbits
+ 155              		.align	1
+ 156              		.global	rc522_rst_pin_write
+ 157              		.syntax unified
+ 158              		.thumb
+ 159              		.thumb_func
+ 161              	rc522_rst_pin_write:
+ 162              	.LVL10:
+ 163              	.LFB3:
+  41:../../../src/rc522_cfg.c **** 
+  42:../../../src/rc522_cfg.c **** int rc522_rst_pin_write(uint8_t val)
+  43:../../../src/rc522_cfg.c **** {
+ 164              		.loc 1 43 1 is_stmt 1 view -0
+ 165              		.cfi_startproc
+ 166              		@ args = 0, pretend = 0, frame = 0
+ 167              		@ frame_needed = 0, uses_anonymous_args = 0
+ 168              		.loc 1 43 1 is_stmt 0 view .LVU28
+ 169 0000 08B5     		push	{r3, lr}
+ 170              	.LCFI4:
+ 171              		.cfi_def_cfa_offset 8
+ 172              		.cfi_offset 3, -8
+ 173              		.cfi_offset 14, -4
+  44:../../../src/rc522_cfg.c ****     if (spi_ops.rst_pin_write)
+ 174              		.loc 1 44 5 is_stmt 1 view .LVU29
+ 175              		.loc 1 44 16 is_stmt 0 view .LVU30
+ 176 0002 044B     		ldr	r3, .L21
+ 177 0004 9B68     		ldr	r3, [r3, #8]
+ 178              		.loc 1 44 8 view .LVU31
+ 179 0006 13B1     		cbz	r3, .L19
+  45:../../../src/rc522_cfg.c ****     {
+  46:../../../src/rc522_cfg.c ****         spi_ops.rst_pin_write(val);
+ 180              		.loc 1 46 9 is_stmt 1 view .LVU32
+ 181 0008 9847     		blx	r3
+ 182              	.LVL11:
+  47:../../../src/rc522_cfg.c ****         return 0;
+ 183              		.loc 1 47 9 view .LVU33
+ 184              		.loc 1 47 16 is_stmt 0 view .LVU34
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s 			page 5
+
+
+ 185 000a 0020     		movs	r0, #0
+ 186              	.L17:
+  48:../../../src/rc522_cfg.c ****     }
+  49:../../../src/rc522_cfg.c ****     return -1; // Error: function not set
+  50:../../../src/rc522_cfg.c **** }
+ 187              		.loc 1 50 1 view .LVU35
+ 188 000c 08BD     		pop	{r3, pc}
+ 189              	.LVL12:
+ 190              	.L19:
+  49:../../../src/rc522_cfg.c **** }
+ 191              		.loc 1 49 12 view .LVU36
+ 192 000e 4FF0FF30 		mov	r0, #-1
+ 193              	.LVL13:
+  49:../../../src/rc522_cfg.c **** }
+ 194              		.loc 1 49 12 view .LVU37
+ 195 0012 FBE7     		b	.L17
+ 196              	.L22:
+ 197              		.align	2
+ 198              	.L21:
+ 199 0014 00000000 		.word	spi_ops
+ 200              		.cfi_endproc
+ 201              	.LFE3:
+ 203              		.section	.text.rc522_rst_pin_read,"ax",%progbits
+ 204              		.align	1
+ 205              		.global	rc522_rst_pin_read
+ 206              		.syntax unified
+ 207              		.thumb
+ 208              		.thumb_func
+ 210              	rc522_rst_pin_read:
+ 211              	.LFB4:
+  51:../../../src/rc522_cfg.c **** 
+  52:../../../src/rc522_cfg.c **** int rc522_rst_pin_read(void)
+  53:../../../src/rc522_cfg.c **** {
+ 212              		.loc 1 53 1 is_stmt 1 view -0
+ 213              		.cfi_startproc
+ 214              		@ args = 0, pretend = 0, frame = 0
+ 215              		@ frame_needed = 0, uses_anonymous_args = 0
+ 216 0000 08B5     		push	{r3, lr}
+ 217              	.LCFI5:
+ 218              		.cfi_def_cfa_offset 8
+ 219              		.cfi_offset 3, -8
+ 220              		.cfi_offset 14, -4
+  54:../../../src/rc522_cfg.c ****     if (spi_ops.rst_pin_read)
+ 221              		.loc 1 54 5 view .LVU39
+ 222              		.loc 1 54 16 is_stmt 0 view .LVU40
+ 223 0002 044B     		ldr	r3, .L27
+ 224 0004 DB68     		ldr	r3, [r3, #12]
+ 225              		.loc 1 54 8 view .LVU41
+ 226 0006 0BB1     		cbz	r3, .L25
+  55:../../../src/rc522_cfg.c ****     {
+  56:../../../src/rc522_cfg.c ****         return spi_ops.rst_pin_read();
+ 227              		.loc 1 56 9 is_stmt 1 view .LVU42
+ 228              		.loc 1 56 16 is_stmt 0 view .LVU43
+ 229 0008 9847     		blx	r3
+ 230              	.LVL14:
+ 231              	.L23:
+  57:../../../src/rc522_cfg.c ****     }
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s 			page 6
+
+
+  58:../../../src/rc522_cfg.c ****     return -1; // Error: function not set
+  59:../../../src/rc522_cfg.c **** }
+ 232              		.loc 1 59 1 view .LVU44
+ 233 000a 08BD     		pop	{r3, pc}
+ 234              	.L25:
+  58:../../../src/rc522_cfg.c **** }
+ 235              		.loc 1 58 12 view .LVU45
+ 236 000c 4FF0FF30 		mov	r0, #-1
+ 237 0010 FBE7     		b	.L23
+ 238              	.L28:
+ 239 0012 00BF     		.align	2
+ 240              	.L27:
+ 241 0014 00000000 		.word	spi_ops
+ 242              		.cfi_endproc
+ 243              	.LFE4:
+ 245              		.section	.bss.spi_ops,"aw",%nobits
+ 246              		.align	2
+ 249              	spi_ops:
+ 250 0000 00000000 		.space	16
+ 250      00000000 
+ 250      00000000 
+ 250      00000000 
+ 251              		.text
+ 252              	.Letext0:
+ 253              		.file 2 "C:\\ST\\STM32CubeCLT_1.17.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/12.3.1/..
+ 254              		.file 3 "C:\\ST\\STM32CubeCLT_1.17.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/12.3.1/..
+ 255              		.file 4 "../../../src/../inc/rc522_cfg.h"
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 rc522_cfg.c
+C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s:19     .text.rc522_set_spi_spec:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s:25     .text.rc522_set_spi_spec:00000000 rc522_set_spi_spec
+C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s:54     .text.rc522_set_spi_spec:00000010 $d
+C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s:249    .bss.spi_ops:00000000 spi_ops
+C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s:59     .text.rc522_spi_read_reg:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s:65     .text.rc522_spi_read_reg:00000000 rc522_spi_read_reg
+C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s:101    .text.rc522_spi_read_reg:00000014 $d
+C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s:106    .text.rc522_spi_write_reg:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s:112    .text.rc522_spi_write_reg:00000000 rc522_spi_write_reg
+C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s:150    .text.rc522_spi_write_reg:00000014 $d
+C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s:155    .text.rc522_rst_pin_write:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s:161    .text.rc522_rst_pin_write:00000000 rc522_rst_pin_write
+C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s:199    .text.rc522_rst_pin_write:00000014 $d
+C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s:204    .text.rc522_rst_pin_read:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s:210    .text.rc522_rst_pin_read:00000000 rc522_rst_pin_read
+C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s:241    .text.rc522_rst_pin_read:00000014 $d
+C:\Users\binhp\AppData\Local\Temp\ccbZ4UtX.s:246    .bss.spi_ops:00000000 $d
+
+NO UNDEFINED SYMBOLS

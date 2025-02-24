@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 1
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 1
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
   31 0000 08B5     		push	{r3, lr}
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 2
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s 			page 2
 
 
   32              	.LCFI0:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 1
   73 0024 08BD     		pop	{r3, pc}
   74              	.L4:
   38:Src/usart.c   ****   }
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 3
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s 			page 3
 
 
   75              		.loc 1 38 5 is_stmt 1 view .LVU21
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 1
  125 0014 01D0     		beq	.L10
  126              	.LVL3:
  127              	.L7:
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 4
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s 			page 4
 
 
   47:Src/usart.c   ****   {
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 1
  154              		.loc 1 48 5 view .LVU36
   49:Src/usart.c   ****     /**USART1 GPIO Configuration
  155              		.loc 1 49 5 view .LVU37
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 5
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s 			page 5
 
 
  156              	.LBB3:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 1
  194              		.loc 1 60 5 is_stmt 1 view .LVU53
   60:Src/usart.c   ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
  195              		.loc 1 60 26 is_stmt 0 view .LVU54
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 6
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s 			page 6
 
 
  196 0060 0024     		movs	r4, #0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 1
  242 0000 0268     		ldr	r2, [r0]
  243              		.loc 1 73 6 view .LVU64
  244 0002 0C4B     		ldr	r3, .L20
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 7
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s 			page 7
 
 
  245 0004 9A42     		cmp	r2, r3
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 1
  284 003c 00080140 		.word	1073809408
  285              		.cfi_endproc
  286              	.LFE67:
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 8
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s 			page 8
 
 
  288              		.section	.text.uart_send,"ax",%progbits
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 1
   96:Src/usart.c   **** void uart_read(void)
   97:Src/usart.c   **** {
  337              		.loc 1 97 1 is_stmt 1 view -0
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 9
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s 			page 9
 
 
  338              		.cfi_startproc
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 1
  387 0006 9A42     		cmp	r2, r3
  388 0008 00D0     		beq	.L33
  389              	.LVL21:
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 10
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s 			page 10
 
 
  390              	.L30:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 1
  431              		.file 3 "C:\\ST\\STM32CubeCLT_1.17.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/12.3.1/..
  432              		.file 4 "C:\\ST\\STM32CubeCLT_1.17.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/12.3.1/..
  433              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 11
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s 			page 11
 
 
  434              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
@@ -607,33 +607,33 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 1
  437              		.file 9 "Src/../Inc/usart.h"
  438              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h"
  439              		.file 11 "Src/../Inc/main.h"
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s 			page 12
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 usart.c
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:19     .text.MX_USART1_UART_Init:00000000 $t
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:25     .text.MX_USART1_UART_Init:00000000 MX_USART1_UART_Init
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:83     .text.MX_USART1_UART_Init:0000002c $d
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:426    .bss.huart1:00000000 huart1
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:89     .text.HAL_UART_MspInit:00000000 $t
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:95     .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:221    .text.HAL_UART_MspInit:00000080 $d
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:227    .text.HAL_UART_MspDeInit:00000000 $t
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:233    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:282    .text.HAL_UART_MspDeInit:00000034 $d
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:289    .text.uart_send:00000000 $t
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:295    .text.uart_send:00000000 uart_send
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:324    .text.uart_send:00000014 $d
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:329    .text.uart_read:00000000 $t
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:335    .text.uart_read:00000000 uart_read
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:357    .text.uart_read:00000010 $d
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:419    .bss.uart_rx_buffer:00000000 uart_rx_buffer
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:363    .text.HAL_UART_RxCpltCallback:00000000 $t
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:369    .text.HAL_UART_RxCpltCallback:00000000 HAL_UART_RxCpltCallback
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:408    .text.HAL_UART_RxCpltCallback:00000018 $d
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:416    .bss.uart_rx_buffer:00000000 $d
-C:\Users\binhp\AppData\Local\Temp\ccCWAW4g.s:423    .bss.huart1:00000000 $d
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:19     .text.MX_USART1_UART_Init:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:25     .text.MX_USART1_UART_Init:00000000 MX_USART1_UART_Init
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:83     .text.MX_USART1_UART_Init:0000002c $d
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:426    .bss.huart1:00000000 huart1
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:89     .text.HAL_UART_MspInit:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:95     .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:221    .text.HAL_UART_MspInit:00000080 $d
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:227    .text.HAL_UART_MspDeInit:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:233    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:282    .text.HAL_UART_MspDeInit:00000034 $d
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:289    .text.uart_send:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:295    .text.uart_send:00000000 uart_send
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:324    .text.uart_send:00000014 $d
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:329    .text.uart_read:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:335    .text.uart_read:00000000 uart_read
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:357    .text.uart_read:00000010 $d
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:419    .bss.uart_rx_buffer:00000000 uart_rx_buffer
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:363    .text.HAL_UART_RxCpltCallback:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:369    .text.HAL_UART_RxCpltCallback:00000000 HAL_UART_RxCpltCallback
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:408    .text.HAL_UART_RxCpltCallback:00000018 $d
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:416    .bss.uart_rx_buffer:00000000 $d
+C:\Users\binhp\AppData\Local\Temp\ccKCCuAj.s:423    .bss.huart1:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_UART_Init

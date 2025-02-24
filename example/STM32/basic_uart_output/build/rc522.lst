@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccvUTNyA.s 			page 1
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\cc7HKSm5.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -18,11 +18,402 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccvUTNyA.s 			page 1
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
   17              		.file 1 "../../../src/rc522.c"
-  18              	.Letext0:
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccvUTNyA.s 			page 2
+  18              		.section	.text.rc522_cfg_cmd,"ax",%progbits
+  19              		.align	1
+  20              		.global	rc522_cfg_cmd
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	rc522_cfg_cmd:
+  26              	.LVL0:
+  27              	.LFB2:
+   1:../../../src/rc522.c **** #include "../inc/rc522.h"
+   2:../../../src/rc522.c **** #include "../inc/rc522_reg.h"
+   3:../../../src/rc522.c **** #include "../inc/rc522_cfg.h"
+   4:../../../src/rc522.c **** 
+   5:../../../src/rc522.c **** void rc522_init_reg(void)
+   6:../../../src/rc522.c **** {
+   7:../../../src/rc522.c **** 
+   8:../../../src/rc522.c ****     rc522_cfg_cmd(CMD_RESETPHASE);
+   9:../../../src/rc522.c **** 
+  10:../../../src/rc522.c ****     // rc522_spi_write_reg(REG_T_MODE, (void *)0x8D, 1);
+  11:../../../src/rc522.c ****     // rc522_spi_write_reg(REG_T_PRESCALER, (void *)0x3E, 1);
+  12:../../../src/rc522.c ****     // rc522_spi_write_reg(REG_T_RELOAD_L, (void *)30, 1);
+  13:../../../src/rc522.c ****     // rc522_spi_write_reg(REG_T_RELOAD_H, (void *)0, 1);
+  14:../../../src/rc522.c **** 
+  15:../../../src/rc522.c ****     // /* 48dB gain */
+  16:../../../src/rc522.c ****     // rc522_spi_write_reg(REG_RF_CFG, (void *)0x70, 1);
+  17:../../../src/rc522.c **** 
+  18:../../../src/rc522.c ****     // rc522_spi_write_reg(REG_TX_AUTO, (void *)0x40, 1);
+  19:../../../src/rc522.c ****     // rc522_spi_write_reg(REG_MODE, (void *)0x3D, 1);
+  20:../../../src/rc522.c **** }
+  21:../../../src/rc522.c **** 
+  22:../../../src/rc522.c **** void rc522_pcd_init(void)
+  23:../../../src/rc522.c **** {
+  24:../../../src/rc522.c ****     uint8_t is_hard_reset = 0;
+  25:../../../src/rc522.c **** 
+  26:../../../src/rc522.c ****     if (rc522_rst_pin_read() == 0)
+  27:../../../src/rc522.c ****     {
+  28:../../../src/rc522.c ****         rc522_rst_pin_write(0);
+  29:../../../src/rc522.c ****         rc522_rst_pin_write(1);
+  30:../../../src/rc522.c ****         is_hard_reset = 1;
+  31:../../../src/rc522.c ****     }
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\cc7HKSm5.s 			page 2
+
+
+  32:../../../src/rc522.c ****     if (!is_hard_reset)
+  33:../../../src/rc522.c ****     {
+  34:../../../src/rc522.c ****         rc522_cfg_cmd(CMD_RESETPHASE);
+  35:../../../src/rc522.c ****     }
+  36:../../../src/rc522.c **** 
+  37:../../../src/rc522.c ****     rc522_spi_write_reg(REG_TX_MODE, (void *)0x00, 1);
+  38:../../../src/rc522.c ****     rc522_spi_write_reg(REG_RX_MODE, (void *)0x00, 1);
+  39:../../../src/rc522.c ****     // Reset ModWidthReg
+  40:../../../src/rc522.c ****     rc522_spi_write_reg(REG_MOD_WIDTH, (void *)0x26, 1);
+  41:../../../src/rc522.c **** 
+  42:../../../src/rc522.c ****     // When communicating with a PICC we need a timeout if something goes wrong.
+  43:../../../src/rc522.c ****     // f_timer = 13.56 MHz / (2*TPreScaler+1) where TPreScaler = [TPrescaler_Hi:TPrescaler_Lo].
+  44:../../../src/rc522.c ****     // TPrescaler_Hi are the four low bits in TModeReg. TPrescaler_Lo is TPrescalerReg.
+  45:../../../src/rc522.c ****     rc522_spi_write_reg(REG_T_MODE, (void *)0x80, 1);      // TAuto=1; timer starts automatically a
+  46:../../../src/rc522.c ****     rc522_spi_write_reg(REG_T_PRESCALER, (void *)0xA9, 1); // TPreScaler = TModeReg[3..0]:TPrescale
+  47:../../../src/rc522.c ****     rc522_spi_write_reg(REG_T_RELOAD_H, (void *)0x03, 1);  // Reload timer with 0x3E8 = 1000, ie 25
+  48:../../../src/rc522.c ****     rc522_spi_write_reg(REG_T_RELOAD_L, (void *)0xE8, 1);
+  49:../../../src/rc522.c **** 
+  50:../../../src/rc522.c ****     rc522_spi_write_reg(REG_TX_AUTO, (void *)0x40, 1); // Default 0x00. Force a 100 % ASK modulatio
+  51:../../../src/rc522.c ****     rc522_spi_write_reg(REG_MODE, (void *)0x3D, 1);    // Default 0x3F. Set the preset value for th
+  52:../../../src/rc522.c ****     // PCD_AntennaOn();
+  53:../../../src/rc522.c **** }
+  54:../../../src/rc522.c **** 
+  55:../../../src/rc522.c **** uint8_t rc522_cfg_cmd(uint8_t val)
+  56:../../../src/rc522.c **** {
+  28              		.loc 1 56 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		.loc 1 56 1 is_stmt 0 view .LVU1
+  33 0000 00B5     		push	{lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 4
+  36              		.cfi_offset 14, -4
+  37 0002 83B0     		sub	sp, sp, #12
+  38              	.LCFI1:
+  39              		.cfi_def_cfa_offset 16
+  57:../../../src/rc522.c ****     uint8_t size = 1;
+  40              		.loc 1 57 5 is_stmt 1 view .LVU2
+  41              	.LVL1:
+  58:../../../src/rc522.c ****     uint8_t data[size];
+  42              		.loc 1 58 5 view .LVU3
+  59:../../../src/rc522.c ****     rc522_spi_write_reg(REG_COMMAND, data, size);
+  43              		.loc 1 59 5 view .LVU4
+  44 0004 0122     		movs	r2, #1
+  45 0006 01A9     		add	r1, sp, #4
+  46              	.LVL2:
+  47              		.loc 1 59 5 is_stmt 0 view .LVU5
+  48 0008 1046     		mov	r0, r2
+  49              	.LVL3:
+  50              		.loc 1 59 5 view .LVU6
+  51 000a FFF7FEFF 		bl	rc522_spi_write_reg
+  52              	.LVL4:
+  60:../../../src/rc522.c ****     return data[0];
+  53              		.loc 1 60 5 is_stmt 1 view .LVU7
+  61:../../../src/rc522.c **** }
+  54              		.loc 1 61 1 is_stmt 0 view .LVU8
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\cc7HKSm5.s 			page 3
+
+
+  55 000e 9DF80400 		ldrb	r0, [sp, #4]	@ zero_extendqisi2
+  56 0012 03B0     		add	sp, sp, #12
+  57              	.LCFI2:
+  58              		.cfi_def_cfa_offset 4
+  59              		@ sp needed
+  60 0014 5DF804FB 		ldr	pc, [sp], #4
+  61              		.loc 1 61 1 view .LVU9
+  62              		.cfi_endproc
+  63              	.LFE2:
+  65              		.section	.text.rc522_init_reg,"ax",%progbits
+  66              		.align	1
+  67              		.global	rc522_init_reg
+  68              		.syntax unified
+  69              		.thumb
+  70              		.thumb_func
+  72              	rc522_init_reg:
+  73              	.LFB0:
+   6:../../../src/rc522.c **** 
+  74              		.loc 1 6 1 is_stmt 1 view -0
+  75              		.cfi_startproc
+  76              		@ args = 0, pretend = 0, frame = 0
+  77              		@ frame_needed = 0, uses_anonymous_args = 0
+  78 0000 08B5     		push	{r3, lr}
+  79              	.LCFI3:
+  80              		.cfi_def_cfa_offset 8
+  81              		.cfi_offset 3, -8
+  82              		.cfi_offset 14, -4
+   8:../../../src/rc522.c **** 
+  83              		.loc 1 8 5 view .LVU11
+  84 0002 0F20     		movs	r0, #15
+  85 0004 FFF7FEFF 		bl	rc522_cfg_cmd
+  86              	.LVL5:
+  20:../../../src/rc522.c **** 
+  87              		.loc 1 20 1 is_stmt 0 view .LVU12
+  88 0008 08BD     		pop	{r3, pc}
+  89              		.cfi_endproc
+  90              	.LFE0:
+  92              		.section	.text.rc522_pcd_init,"ax",%progbits
+  93              		.align	1
+  94              		.global	rc522_pcd_init
+  95              		.syntax unified
+  96              		.thumb
+  97              		.thumb_func
+  99              	rc522_pcd_init:
+ 100              	.LFB1:
+  23:../../../src/rc522.c ****     uint8_t is_hard_reset = 0;
+ 101              		.loc 1 23 1 is_stmt 1 view -0
+ 102              		.cfi_startproc
+ 103              		@ args = 0, pretend = 0, frame = 0
+ 104              		@ frame_needed = 0, uses_anonymous_args = 0
+ 105 0000 08B5     		push	{r3, lr}
+ 106              	.LCFI4:
+ 107              		.cfi_def_cfa_offset 8
+ 108              		.cfi_offset 3, -8
+ 109              		.cfi_offset 14, -4
+  24:../../../src/rc522.c **** 
+ 110              		.loc 1 24 5 view .LVU14
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\cc7HKSm5.s 			page 4
+
+
+ 111              	.LVL6:
+  26:../../../src/rc522.c ****     {
+ 112              		.loc 1 26 5 view .LVU15
+  26:../../../src/rc522.c ****     {
+ 113              		.loc 1 26 9 is_stmt 0 view .LVU16
+ 114 0002 FFF7FEFF 		bl	rc522_rst_pin_read
+ 115              	.LVL7:
+  26:../../../src/rc522.c ****     {
+ 116              		.loc 1 26 8 view .LVU17
+ 117 0006 80B3     		cbz	r0, .L6
+  32:../../../src/rc522.c ****     {
+ 118              		.loc 1 32 5 is_stmt 1 view .LVU18
+  34:../../../src/rc522.c ****     }
+ 119              		.loc 1 34 9 view .LVU19
+ 120 0008 0F20     		movs	r0, #15
+ 121 000a FFF7FEFF 		bl	rc522_cfg_cmd
+ 122              	.LVL8:
+ 123              	.L7:
+  37:../../../src/rc522.c ****     rc522_spi_write_reg(REG_RX_MODE, (void *)0x00, 1);
+ 124              		.loc 1 37 5 view .LVU20
+ 125 000e 0122     		movs	r2, #1
+ 126 0010 0021     		movs	r1, #0
+ 127 0012 1220     		movs	r0, #18
+ 128 0014 FFF7FEFF 		bl	rc522_spi_write_reg
+ 129              	.LVL9:
+  38:../../../src/rc522.c ****     // Reset ModWidthReg
+ 130              		.loc 1 38 5 view .LVU21
+ 131 0018 0122     		movs	r2, #1
+ 132 001a 0021     		movs	r1, #0
+ 133 001c 1320     		movs	r0, #19
+ 134 001e FFF7FEFF 		bl	rc522_spi_write_reg
+ 135              	.LVL10:
+  40:../../../src/rc522.c **** 
+ 136              		.loc 1 40 5 view .LVU22
+ 137 0022 0122     		movs	r2, #1
+ 138 0024 2621     		movs	r1, #38
+ 139 0026 2420     		movs	r0, #36
+ 140 0028 FFF7FEFF 		bl	rc522_spi_write_reg
+ 141              	.LVL11:
+  45:../../../src/rc522.c ****     rc522_spi_write_reg(REG_T_PRESCALER, (void *)0xA9, 1); // TPreScaler = TModeReg[3..0]:TPrescale
+ 142              		.loc 1 45 5 view .LVU23
+ 143 002c 0122     		movs	r2, #1
+ 144 002e 8021     		movs	r1, #128
+ 145 0030 2A20     		movs	r0, #42
+ 146 0032 FFF7FEFF 		bl	rc522_spi_write_reg
+ 147              	.LVL12:
+  46:../../../src/rc522.c ****     rc522_spi_write_reg(REG_T_RELOAD_H, (void *)0x03, 1);  // Reload timer with 0x3E8 = 1000, ie 25
+ 148              		.loc 1 46 5 view .LVU24
+ 149 0036 0122     		movs	r2, #1
+ 150 0038 A921     		movs	r1, #169
+ 151 003a 2B20     		movs	r0, #43
+ 152 003c FFF7FEFF 		bl	rc522_spi_write_reg
+ 153              	.LVL13:
+  47:../../../src/rc522.c ****     rc522_spi_write_reg(REG_T_RELOAD_L, (void *)0xE8, 1);
+ 154              		.loc 1 47 5 view .LVU25
+ 155 0040 0122     		movs	r2, #1
+ 156 0042 0321     		movs	r1, #3
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\cc7HKSm5.s 			page 5
+
+
+ 157 0044 2C20     		movs	r0, #44
+ 158 0046 FFF7FEFF 		bl	rc522_spi_write_reg
+ 159              	.LVL14:
+  48:../../../src/rc522.c **** 
+ 160              		.loc 1 48 5 view .LVU26
+ 161 004a 0122     		movs	r2, #1
+ 162 004c E821     		movs	r1, #232
+ 163 004e 2D20     		movs	r0, #45
+ 164 0050 FFF7FEFF 		bl	rc522_spi_write_reg
+ 165              	.LVL15:
+  50:../../../src/rc522.c ****     rc522_spi_write_reg(REG_MODE, (void *)0x3D, 1);    // Default 0x3F. Set the preset value for th
+ 166              		.loc 1 50 5 view .LVU27
+ 167 0054 0122     		movs	r2, #1
+ 168 0056 4021     		movs	r1, #64
+ 169 0058 1520     		movs	r0, #21
+ 170 005a FFF7FEFF 		bl	rc522_spi_write_reg
+ 171              	.LVL16:
+  51:../../../src/rc522.c ****     // PCD_AntennaOn();
+ 172              		.loc 1 51 5 view .LVU28
+ 173 005e 0122     		movs	r2, #1
+ 174 0060 3D21     		movs	r1, #61
+ 175 0062 1120     		movs	r0, #17
+ 176 0064 FFF7FEFF 		bl	rc522_spi_write_reg
+ 177              	.LVL17:
+  53:../../../src/rc522.c **** 
+ 178              		.loc 1 53 1 is_stmt 0 view .LVU29
+ 179 0068 08BD     		pop	{r3, pc}
+ 180              	.LVL18:
+ 181              	.L6:
+  28:../../../src/rc522.c ****         rc522_rst_pin_write(1);
+ 182              		.loc 1 28 9 is_stmt 1 view .LVU30
+ 183 006a 0020     		movs	r0, #0
+ 184 006c FFF7FEFF 		bl	rc522_rst_pin_write
+ 185              	.LVL19:
+  29:../../../src/rc522.c ****         is_hard_reset = 1;
+ 186              		.loc 1 29 9 view .LVU31
+ 187 0070 0120     		movs	r0, #1
+ 188 0072 FFF7FEFF 		bl	rc522_rst_pin_write
+ 189              	.LVL20:
+  30:../../../src/rc522.c ****     }
+ 190              		.loc 1 30 9 view .LVU32
+  32:../../../src/rc522.c ****     {
+ 191              		.loc 1 32 5 view .LVU33
+ 192 0076 CAE7     		b	.L7
+ 193              		.cfi_endproc
+ 194              	.LFE1:
+ 196              		.section	.text.rc522_get_chip_id,"ax",%progbits
+ 197              		.align	1
+ 198              		.global	rc522_get_chip_id
+ 199              		.syntax unified
+ 200              		.thumb
+ 201              		.thumb_func
+ 203              	rc522_get_chip_id:
+ 204              	.LFB3:
+  62:../../../src/rc522.c **** 
+  63:../../../src/rc522.c **** uint8_t rc522_get_chip_id(void)
+  64:../../../src/rc522.c **** {
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\cc7HKSm5.s 			page 6
+
+
+ 205              		.loc 1 64 1 view -0
+ 206              		.cfi_startproc
+ 207              		@ args = 0, pretend = 0, frame = 8
+ 208              		@ frame_needed = 0, uses_anonymous_args = 0
+ 209 0000 00B5     		push	{lr}
+ 210              	.LCFI5:
+ 211              		.cfi_def_cfa_offset 4
+ 212              		.cfi_offset 14, -4
+ 213 0002 83B0     		sub	sp, sp, #12
+ 214              	.LCFI6:
+ 215              		.cfi_def_cfa_offset 16
+  65:../../../src/rc522.c ****     uint8_t size = 1;
+ 216              		.loc 1 65 5 view .LVU35
+ 217              	.LVL21:
+  66:../../../src/rc522.c ****     uint8_t data[size];
+ 218              		.loc 1 66 5 view .LVU36
+  67:../../../src/rc522.c ****     rc522_spi_read_reg(REG_VERSION, data, size);
+ 219              		.loc 1 67 5 view .LVU37
+ 220 0004 0122     		movs	r2, #1
+ 221 0006 01A9     		add	r1, sp, #4
+ 222              	.LVL22:
+ 223              		.loc 1 67 5 is_stmt 0 view .LVU38
+ 224 0008 3720     		movs	r0, #55
+ 225 000a FFF7FEFF 		bl	rc522_spi_read_reg
+ 226              	.LVL23:
+  68:../../../src/rc522.c ****     return data[0];
+ 227              		.loc 1 68 5 is_stmt 1 view .LVU39
+  69:../../../src/rc522.c **** }
+ 228              		.loc 1 69 1 is_stmt 0 view .LVU40
+ 229 000e 9DF80400 		ldrb	r0, [sp, #4]	@ zero_extendqisi2
+ 230 0012 03B0     		add	sp, sp, #12
+ 231              	.LCFI7:
+ 232              		.cfi_def_cfa_offset 4
+ 233              		@ sp needed
+ 234 0014 5DF804FB 		ldr	pc, [sp], #4
+ 235              		.loc 1 69 1 view .LVU41
+ 236              		.cfi_endproc
+ 237              	.LFE3:
+ 239              		.section	.text.rc522_get_chip_sts,"ax",%progbits
+ 240              		.align	1
+ 241              		.global	rc522_get_chip_sts
+ 242              		.syntax unified
+ 243              		.thumb
+ 244              		.thumb_func
+ 246              	rc522_get_chip_sts:
+ 247              	.LFB4:
+  70:../../../src/rc522.c **** 
+  71:../../../src/rc522.c **** uint8_t rc522_get_chip_sts(void)
+  72:../../../src/rc522.c **** {
+ 248              		.loc 1 72 1 is_stmt 1 view -0
+ 249              		.cfi_startproc
+ 250              		@ args = 0, pretend = 0, frame = 8
+ 251              		@ frame_needed = 0, uses_anonymous_args = 0
+ 252 0000 00B5     		push	{lr}
+ 253              	.LCFI8:
+ 254              		.cfi_def_cfa_offset 4
+ 255              		.cfi_offset 14, -4
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\cc7HKSm5.s 			page 7
+
+
+ 256 0002 83B0     		sub	sp, sp, #12
+ 257              	.LCFI9:
+ 258              		.cfi_def_cfa_offset 16
+  73:../../../src/rc522.c ****     uint8_t size = 1;
+ 259              		.loc 1 73 5 view .LVU43
+ 260              	.LVL24:
+  74:../../../src/rc522.c ****     uint8_t data[size];
+ 261              		.loc 1 74 5 view .LVU44
+  75:../../../src/rc522.c ****     rc522_spi_read_reg(REG_COMMAND, data, size);
+ 262              		.loc 1 75 5 view .LVU45
+ 263 0004 0122     		movs	r2, #1
+ 264 0006 01A9     		add	r1, sp, #4
+ 265              	.LVL25:
+ 266              		.loc 1 75 5 is_stmt 0 view .LVU46
+ 267 0008 1046     		mov	r0, r2
+ 268 000a FFF7FEFF 		bl	rc522_spi_read_reg
+ 269              	.LVL26:
+  76:../../../src/rc522.c ****     return data[0];
+ 270              		.loc 1 76 5 is_stmt 1 view .LVU47
+  77:../../../src/rc522.c **** }
+ 271              		.loc 1 77 1 is_stmt 0 view .LVU48
+ 272 000e 9DF80400 		ldrb	r0, [sp, #4]	@ zero_extendqisi2
+ 273 0012 03B0     		add	sp, sp, #12
+ 274              	.LCFI10:
+ 275              		.cfi_def_cfa_offset 4
+ 276              		@ sp needed
+ 277 0014 5DF804FB 		ldr	pc, [sp], #4
+ 278              		.loc 1 77 1 view .LVU49
+ 279              		.cfi_endproc
+ 280              	.LFE4:
+ 282              		.text
+ 283              	.Letext0:
+ 284              		.file 2 "C:\\ST\\STM32CubeCLT_1.17.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/12.3.1/..
+ 285              		.file 3 "C:\\ST\\STM32CubeCLT_1.17.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/12.3.1/..
+ 286              		.file 4 "../../../src/../inc/rc522_cfg.h"
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\cc7HKSm5.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 rc522.c
+C:\Users\binhp\AppData\Local\Temp\cc7HKSm5.s:19     .text.rc522_cfg_cmd:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\cc7HKSm5.s:25     .text.rc522_cfg_cmd:00000000 rc522_cfg_cmd
+C:\Users\binhp\AppData\Local\Temp\cc7HKSm5.s:66     .text.rc522_init_reg:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\cc7HKSm5.s:72     .text.rc522_init_reg:00000000 rc522_init_reg
+C:\Users\binhp\AppData\Local\Temp\cc7HKSm5.s:93     .text.rc522_pcd_init:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\cc7HKSm5.s:99     .text.rc522_pcd_init:00000000 rc522_pcd_init
+C:\Users\binhp\AppData\Local\Temp\cc7HKSm5.s:197    .text.rc522_get_chip_id:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\cc7HKSm5.s:203    .text.rc522_get_chip_id:00000000 rc522_get_chip_id
+C:\Users\binhp\AppData\Local\Temp\cc7HKSm5.s:240    .text.rc522_get_chip_sts:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\cc7HKSm5.s:246    .text.rc522_get_chip_sts:00000000 rc522_get_chip_sts
 
-NO UNDEFINED SYMBOLS
+UNDEFINED SYMBOLS
+rc522_spi_write_reg
+rc522_rst_pin_read
+rc522_rst_pin_write
+rc522_spi_read_reg
