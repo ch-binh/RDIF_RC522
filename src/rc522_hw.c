@@ -11,16 +11,16 @@ void rc522_init(void) {
 
 */
 
-#include "../inc/rc522_cfg.h"
+#include "../inc/rc522_hw.h"
 
 static rc522_ops_t spi_ops;
 
-void rc522_set_spi_spec(rc522_ops_t *ops)
+void hw_set_ops_spec(rc522_ops_t *ops)
 {
     spi_ops = *ops; // Copy the function pointers
 }
 
-int rc522_spi_read_reg(uint8_t reg, uint8_t *data, uint8_t size)
+int hw_spi_read_reg(uint8_t reg, uint8_t *data, uint8_t size)
 {
     if (spi_ops.spi_read)
     {
@@ -29,7 +29,7 @@ int rc522_spi_read_reg(uint8_t reg, uint8_t *data, uint8_t size)
     return -1; // Error: function not set
 }
 
-int rc522_spi_write_reg(uint8_t reg, uint8_t *data, uint8_t size)
+int hw_spi_write_reg(uint8_t reg, uint8_t *data, uint8_t size)
 {
     if (spi_ops.spi_write)
     {
@@ -39,7 +39,19 @@ int rc522_spi_write_reg(uint8_t reg, uint8_t *data, uint8_t size)
     return -1; // Error: function not set
 }
 
-int rc522_rst_pin_write(uint8_t val)
+int hw_spi_cls_reg_bitmask(uint8_t reg, uint8_t mask)
+{
+    uint8_t size = 1;
+    uint8_t data[size];
+    hw_spi_read_reg(reg, data, size);
+    hw_spi_write_reg(reg, (void *)(data[0] & (~mask)), size);
+    return 0;
+}
+
+
+
+
+int hw_rst_pin_write(uint8_t val)
 {
     if (spi_ops.rst_pin_write)
     {
@@ -49,7 +61,7 @@ int rc522_rst_pin_write(uint8_t val)
     return -1; // Error: function not set
 }
 
-int rc522_rst_pin_read(void)
+int hw_rst_pin_read(void)
 {
     if (spi_ops.rst_pin_read)
     {

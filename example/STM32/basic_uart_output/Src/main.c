@@ -22,8 +22,7 @@
 #include "sysconfig.h"
 #include "board_config.h"
 
-#include "../../../../inc/rc522.h"
-#include "../../../../inc/rc522_cfg.h"
+#include "rc522.h"
 
 void rc522_init(void)
 {
@@ -33,7 +32,7 @@ void rc522_init(void)
       .rst_pin_write = rc522_rstpin_wrt,
       .rst_pin_read = rc522_rst_pin_rd
   };
-  rc522_set_spi_spec(&ops);
+  hw_set_ops_spec(&ops);
 }
 
 int main(void)
@@ -50,14 +49,13 @@ int main(void)
   
   rc522_init_reg();
   rc522_pcd_init();
-
   rc522_get_chip_sts();
+  rc522_get_chip_id();
 
-  uint8_t result = 0;
   while (1)
   {
     HAL_GPIO_TogglePin(BUILTIN_LED_PORT, BUILTIN_LED_PIN);
-    result = rc522_get_chip_id();
+    
     HAL_Delay(1000);
   }
 }

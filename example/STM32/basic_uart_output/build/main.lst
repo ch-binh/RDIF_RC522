@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s 			page 1
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccxUacST.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -50,18 +50,17 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s 			page 1
   22:Src/main.c    **** #include "sysconfig.h"
   23:Src/main.c    **** #include "board_config.h"
   24:Src/main.c    **** 
-  25:Src/main.c    **** #include "../../../../inc/rc522.h"
-  26:Src/main.c    **** #include "../../../../inc/rc522_cfg.h"
-  27:Src/main.c    **** 
-  28:Src/main.c    **** void rc522_init(void)
-  29:Src/main.c    **** {
-  27              		.loc 1 29 1 view -0
+  25:Src/main.c    **** #include "rc522.h"
+  26:Src/main.c    **** 
+  27:Src/main.c    **** void rc522_init(void)
+  28:Src/main.c    **** {
+  27              		.loc 1 28 1 view -0
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 16
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s 			page 2
-
-
   30              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccxUacST.s 			page 2
+
+
   31 0000 00B5     		push	{lr}
   32              	.LCFI0:
   33              		.cfi_def_cfa_offset 4
@@ -69,25 +68,25 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s 			page 1
   35 0002 85B0     		sub	sp, sp, #20
   36              	.LCFI1:
   37              		.cfi_def_cfa_offset 24
-  30:Src/main.c    ****   rc522_ops_t ops = {
-  38              		.loc 1 30 3 view .LVU1
-  39              		.loc 1 30 15 is_stmt 0 view .LVU2
+  29:Src/main.c    ****   rc522_ops_t ops = {
+  38              		.loc 1 29 3 view .LVU1
+  39              		.loc 1 29 15 is_stmt 0 view .LVU2
   40 0004 054B     		ldr	r3, .L3
   41 0006 EC46     		mov	ip, sp
   42 0008 0FCB     		ldm	r3, {r0, r1, r2, r3}
   43 000a 8CE80F00 		stm	ip, {r0, r1, r2, r3}
-  31:Src/main.c    ****       .spi_write = stm32_spi_write,
-  32:Src/main.c    ****       .spi_read = stm32_spi_read,
-  33:Src/main.c    ****       .rst_pin_write = rc522_rstpin_wrt,
-  34:Src/main.c    ****       .rst_pin_read = rc522_rst_pin_rd
-  35:Src/main.c    ****   };
-  36:Src/main.c    ****   rc522_set_spi_spec(&ops);
-  44              		.loc 1 36 3 is_stmt 1 view .LVU3
+  30:Src/main.c    ****       .spi_write = stm32_spi_write,
+  31:Src/main.c    ****       .spi_read = stm32_spi_read,
+  32:Src/main.c    ****       .rst_pin_write = rc522_rstpin_wrt,
+  33:Src/main.c    ****       .rst_pin_read = rc522_rst_pin_rd
+  34:Src/main.c    ****   };
+  35:Src/main.c    ****   hw_set_ops_spec(&ops);
+  44              		.loc 1 35 3 is_stmt 1 view .LVU3
   45 000e 6046     		mov	r0, ip
-  46 0010 FFF7FEFF 		bl	rc522_set_spi_spec
+  46 0010 FFF7FEFF 		bl	hw_set_ops_spec
   47              	.LVL0:
-  37:Src/main.c    **** }
-  48              		.loc 1 37 1 is_stmt 0 view .LVU4
+  36:Src/main.c    **** }
+  48              		.loc 1 36 1 is_stmt 0 view .LVU4
   49 0014 05B0     		add	sp, sp, #20
   50              	.LCFI2:
   51              		.cfi_def_cfa_offset 4
@@ -107,122 +106,120 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s 			page 1
   66              		.thumb_func
   68              	main:
   69              	.LFB66:
-  38:Src/main.c    **** 
-  39:Src/main.c    **** int main(void)
-  40:Src/main.c    **** {
-  70              		.loc 1 40 1 is_stmt 1 view -0
+  37:Src/main.c    **** 
+  38:Src/main.c    **** int main(void)
+  39:Src/main.c    **** {
+  70              		.loc 1 39 1 is_stmt 1 view -0
   71              		.cfi_startproc
-  72              		@ args = 0, pretend = 0, frame = 0
-  73              		@ frame_needed = 0, uses_anonymous_args = 0
-  74 0000 08B5     		push	{r3, lr}
-  75              	.LCFI3:
-  76              		.cfi_def_cfa_offset 8
-  77              		.cfi_offset 3, -8
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s 			page 3
+  72              		@ Volatile: function does not return.
+  73              		@ args = 0, pretend = 0, frame = 0
+  74              		@ frame_needed = 0, uses_anonymous_args = 0
+  75 0000 08B5     		push	{r3, lr}
+  76              	.LCFI3:
+  77              		.cfi_def_cfa_offset 8
+  78              		.cfi_offset 3, -8
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccxUacST.s 			page 3
 
 
-  78              		.cfi_offset 14, -4
-  41:Src/main.c    ****   HAL_Init();
-  79              		.loc 1 41 3 view .LVU6
-  80 0002 FFF7FEFF 		bl	HAL_Init
-  81              	.LVL1:
-  42:Src/main.c    ****   SystemClock_Config();
-  82              		.loc 1 42 3 view .LVU7
-  83 0006 FFF7FEFF 		bl	SystemClock_Config
-  84              	.LVL2:
-  43:Src/main.c    ****   MX_GPIO_Init();
-  85              		.loc 1 43 3 view .LVU8
-  86 000a FFF7FEFF 		bl	MX_GPIO_Init
-  87              	.LVL3:
-  44:Src/main.c    ****   MX_SPI1_Init();
-  88              		.loc 1 44 3 view .LVU9
-  89 000e FFF7FEFF 		bl	MX_SPI1_Init
-  90              	.LVL4:
-  45:Src/main.c    ****   //MX_USART1_UART_Init();
-  46:Src/main.c    **** 
-  47:Src/main.c    ****   HAL_Delay(500);
-  91              		.loc 1 47 3 view .LVU10
-  92 0012 4FF4FA70 		mov	r0, #500
-  93 0016 FFF7FEFF 		bl	HAL_Delay
-  94              	.LVL5:
-  48:Src/main.c    **** 
-  49:Src/main.c    ****   rc522_init();
-  95              		.loc 1 49 3 view .LVU11
-  96 001a FFF7FEFF 		bl	rc522_init
-  97              	.LVL6:
-  50:Src/main.c    ****   
-  51:Src/main.c    ****   rc522_init_reg();
-  98              		.loc 1 51 3 view .LVU12
-  99 001e FFF7FEFF 		bl	rc522_init_reg
- 100              	.LVL7:
-  52:Src/main.c    ****   rc522_pcd_init();
- 101              		.loc 1 52 3 view .LVU13
- 102 0022 FFF7FEFF 		bl	rc522_pcd_init
- 103              	.LVL8:
-  53:Src/main.c    **** 
-  54:Src/main.c    ****   rc522_get_chip_sts();
- 104              		.loc 1 54 3 view .LVU14
- 105 0026 FFF7FEFF 		bl	rc522_get_chip_sts
- 106              	.LVL9:
-  55:Src/main.c    **** 
-  56:Src/main.c    ****   uint8_t result = 0;
- 107              		.loc 1 56 3 view .LVU15
- 108              	.L6:
-  57:Src/main.c    ****   while (1)
- 109              		.loc 1 57 3 discriminator 1 view .LVU16
-  58:Src/main.c    ****   {
-  59:Src/main.c    ****     HAL_GPIO_TogglePin(BUILTIN_LED_PORT, BUILTIN_LED_PIN);
- 110              		.loc 1 59 5 discriminator 1 view .LVU17
- 111 002a 4FF40051 		mov	r1, #8192
- 112 002e 0548     		ldr	r0, .L8
- 113 0030 FFF7FEFF 		bl	HAL_GPIO_TogglePin
- 114              	.LVL10:
-  60:Src/main.c    ****     result = rc522_get_chip_id();
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s 			page 4
+  79              		.cfi_offset 14, -4
+  40:Src/main.c    ****   HAL_Init();
+  80              		.loc 1 40 3 view .LVU6
+  81 0002 FFF7FEFF 		bl	HAL_Init
+  82              	.LVL1:
+  41:Src/main.c    ****   SystemClock_Config();
+  83              		.loc 1 41 3 view .LVU7
+  84 0006 FFF7FEFF 		bl	SystemClock_Config
+  85              	.LVL2:
+  42:Src/main.c    ****   MX_GPIO_Init();
+  86              		.loc 1 42 3 view .LVU8
+  87 000a FFF7FEFF 		bl	MX_GPIO_Init
+  88              	.LVL3:
+  43:Src/main.c    ****   MX_SPI1_Init();
+  89              		.loc 1 43 3 view .LVU9
+  90 000e FFF7FEFF 		bl	MX_SPI1_Init
+  91              	.LVL4:
+  44:Src/main.c    ****   //MX_USART1_UART_Init();
+  45:Src/main.c    **** 
+  46:Src/main.c    ****   HAL_Delay(500);
+  92              		.loc 1 46 3 view .LVU10
+  93 0012 4FF4FA70 		mov	r0, #500
+  94 0016 FFF7FEFF 		bl	HAL_Delay
+  95              	.LVL5:
+  47:Src/main.c    **** 
+  48:Src/main.c    ****   rc522_init();
+  96              		.loc 1 48 3 view .LVU11
+  97 001a FFF7FEFF 		bl	rc522_init
+  98              	.LVL6:
+  49:Src/main.c    ****   
+  50:Src/main.c    ****   rc522_init_reg();
+  99              		.loc 1 50 3 view .LVU12
+ 100 001e FFF7FEFF 		bl	rc522_init_reg
+ 101              	.LVL7:
+  51:Src/main.c    ****   rc522_pcd_init();
+ 102              		.loc 1 51 3 view .LVU13
+ 103 0022 FFF7FEFF 		bl	rc522_pcd_init
+ 104              	.LVL8:
+  52:Src/main.c    ****   rc522_get_chip_sts();
+ 105              		.loc 1 52 3 view .LVU14
+ 106 0026 FFF7FEFF 		bl	rc522_get_chip_sts
+ 107              	.LVL9:
+  53:Src/main.c    ****   rc522_get_chip_id();
+ 108              		.loc 1 53 3 view .LVU15
+ 109 002a FFF7FEFF 		bl	rc522_get_chip_id
+ 110              	.LVL10:
+ 111              	.L6:
+  54:Src/main.c    **** 
+  55:Src/main.c    ****   while (1)
+ 112              		.loc 1 55 3 view .LVU16
+  56:Src/main.c    ****   {
+  57:Src/main.c    ****     HAL_GPIO_TogglePin(BUILTIN_LED_PORT, BUILTIN_LED_PIN);
+ 113              		.loc 1 57 5 view .LVU17
+ 114 002e 4FF40051 		mov	r1, #8192
+ 115 0032 0448     		ldr	r0, .L8
+ 116 0034 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 117              	.LVL11:
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccxUacST.s 			page 4
 
 
- 115              		.loc 1 60 5 discriminator 1 view .LVU18
- 116              		.loc 1 60 14 is_stmt 0 discriminator 1 view .LVU19
- 117 0034 FFF7FEFF 		bl	rc522_get_chip_id
- 118              	.LVL11:
-  61:Src/main.c    ****     HAL_Delay(1000);
- 119              		.loc 1 61 5 is_stmt 1 discriminator 1 view .LVU20
- 120 0038 4FF47A70 		mov	r0, #1000
- 121 003c FFF7FEFF 		bl	HAL_Delay
- 122              	.LVL12:
-  57:Src/main.c    ****   {
- 123              		.loc 1 57 9 discriminator 1 view .LVU21
- 124 0040 F3E7     		b	.L6
- 125              	.L9:
- 126 0042 00BF     		.align	2
- 127              	.L8:
- 128 0044 00100140 		.word	1073811456
- 129              		.cfi_endproc
- 130              	.LFE66:
- 132              		.section	.text.Error_Handler,"ax",%progbits
- 133              		.align	1
- 134              		.global	Error_Handler
- 135              		.syntax unified
- 136              		.thumb
- 137              		.thumb_func
- 139              	Error_Handler:
- 140              	.LFB67:
-  62:Src/main.c    ****   }
-  63:Src/main.c    **** }
-  64:Src/main.c    **** 
-  65:Src/main.c    **** void Error_Handler(void)
-  66:Src/main.c    **** {
- 141              		.loc 1 66 1 view -0
- 142              		.cfi_startproc
- 143              		@ Volatile: function does not return.
- 144              		@ args = 0, pretend = 0, frame = 0
- 145              		@ frame_needed = 0, uses_anonymous_args = 0
- 146              		@ link register save eliminated.
-  67:Src/main.c    ****   __disable_irq();
- 147              		.loc 1 67 3 view .LVU23
- 148              	.LBB4:
- 149              	.LBI4:
- 150              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
+  58:Src/main.c    ****     
+  59:Src/main.c    ****     HAL_Delay(1000);
+ 118              		.loc 1 59 5 discriminator 1 view .LVU18
+ 119 0038 4FF47A70 		mov	r0, #1000
+ 120 003c FFF7FEFF 		bl	HAL_Delay
+ 121              	.LVL12:
+  55:Src/main.c    ****   {
+ 122              		.loc 1 55 9 view .LVU19
+ 123 0040 F5E7     		b	.L6
+ 124              	.L9:
+ 125 0042 00BF     		.align	2
+ 126              	.L8:
+ 127 0044 00100140 		.word	1073811456
+ 128              		.cfi_endproc
+ 129              	.LFE66:
+ 131              		.section	.text.Error_Handler,"ax",%progbits
+ 132              		.align	1
+ 133              		.global	Error_Handler
+ 134              		.syntax unified
+ 135              		.thumb
+ 136              		.thumb_func
+ 138              	Error_Handler:
+ 139              	.LFB67:
+  60:Src/main.c    ****   }
+  61:Src/main.c    **** }
+  62:Src/main.c    **** 
+  63:Src/main.c    **** void Error_Handler(void)
+  64:Src/main.c    **** {
+ 140              		.loc 1 64 1 view -0
+ 141              		.cfi_startproc
+ 142              		@ Volatile: function does not return.
+ 143              		@ args = 0, pretend = 0, frame = 0
+ 144              		@ frame_needed = 0, uses_anonymous_args = 0
+ 145              		@ link register save eliminated.
+  65:Src/main.c    ****   __disable_irq();
+ 146              		.loc 1 65 3 view .LVU21
+ 147              	.LBB4:
+ 148              	.LBI4:
+ 149              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
    1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
@@ -238,12 +235,12 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s 			page 1
   13:Drivers/CMSIS/Include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
   14:Drivers/CMSIS/Include/cmsis_gcc.h ****  * You may obtain a copy of the License at
   15:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s 			page 5
-
-
   16:Drivers/CMSIS/Include/cmsis_gcc.h ****  * www.apache.org/licenses/LICENSE-2.0
   17:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
   18:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Unless required by applicable law or agreed to in writing, software
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccxUacST.s 			page 5
+
+
   19:Drivers/CMSIS/Include/cmsis_gcc.h ****  * distributed under the License is distributed on an AS IS BASIS, WITHOUT
   20:Drivers/CMSIS/Include/cmsis_gcc.h ****  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   21:Drivers/CMSIS/Include/cmsis_gcc.h ****  * See the License for the specific language governing permissions and
@@ -298,12 +295,12 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s 			page 1
   70:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
   71:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   72:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s 			page 6
-
-
   73:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
   74:Drivers/CMSIS/Include/cmsis_gcc.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
   75:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccxUacST.s 			page 6
+
+
   76:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
   77:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   78:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_WRITE
@@ -358,12 +355,12 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s 			page 1
  127:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  128:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  129:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s 			page 7
-
-
  130:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  131:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
  132:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccxUacST.s 			page 7
+
+
  133:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  134:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  135:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -372,68 +369,68 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s 			page 1
  138:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  139:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  140:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
- 151              		.loc 2 140 27 view .LVU24
- 152              	.LBB5:
+ 150              		.loc 2 140 27 view .LVU22
+ 151              	.LBB5:
  141:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  142:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
- 153              		.loc 2 142 3 view .LVU25
- 154              		.syntax unified
- 155              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 156 0000 72B6     		cpsid i
- 157              	@ 0 "" 2
- 158              		.thumb
- 159              		.syntax unified
- 160              	.L11:
- 161              	.LBE5:
- 162              	.LBE4:
-  68:Src/main.c    ****   while (1)
- 163              		.loc 1 68 3 discriminator 1 view .LVU26
-  69:Src/main.c    ****   {
-  70:Src/main.c    ****   }
- 164              		.loc 1 70 3 discriminator 1 view .LVU27
-  68:Src/main.c    ****   while (1)
- 165              		.loc 1 68 9 discriminator 1 view .LVU28
- 166 0002 FEE7     		b	.L11
- 167              		.cfi_endproc
- 168              	.LFE67:
- 170              		.section	.rodata
- 171              		.align	2
- 172              		.set	.LANCHOR0,. + 0
- 173              	.LC0:
- 174 0000 00000000 		.word	stm32_spi_write
- 175 0004 00000000 		.word	stm32_spi_read
- 176 0008 00000000 		.word	rc522_rstpin_wrt
- 177 000c 00000000 		.word	rc522_rst_pin_rd
- 178              		.text
- 179              	.Letext0:
- 180              		.file 3 "C:\\ST\\STM32CubeCLT_1.17.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/12.3.1/..
- 181              		.file 4 "C:\\ST\\STM32CubeCLT_1.17.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/12.3.1/..
- 182              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103x6.h"
- 183              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
- 184              		.file 7 "Src/../../../../inc/rc522_cfg.h"
- 185              		.file 8 "Src/../../../../inc/rc522.h"
- 186              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
- 187              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
- 188              		.file 11 "Inc/spi.h"
- 189              		.file 12 "Inc/gpio.h"
- 190              		.file 13 "Inc/sysconfig.h"
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s 			page 8
+ 152              		.loc 2 142 3 view .LVU23
+ 153              		.syntax unified
+ 154              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 155 0000 72B6     		cpsid i
+ 156              	@ 0 "" 2
+ 157              		.thumb
+ 158              		.syntax unified
+ 159              	.L11:
+ 160              	.LBE5:
+ 161              	.LBE4:
+  66:Src/main.c    ****   while (1)
+ 162              		.loc 1 66 3 view .LVU24
+  67:Src/main.c    ****   {
+  68:Src/main.c    ****   }
+ 163              		.loc 1 68 3 view .LVU25
+  66:Src/main.c    ****   while (1)
+ 164              		.loc 1 66 9 view .LVU26
+ 165 0002 FEE7     		b	.L11
+ 166              		.cfi_endproc
+ 167              	.LFE67:
+ 169              		.section	.rodata
+ 170              		.align	2
+ 171              		.set	.LANCHOR0,. + 0
+ 172              	.LC0:
+ 173 0000 00000000 		.word	stm32_spi_write
+ 174 0004 00000000 		.word	stm32_spi_read
+ 175 0008 00000000 		.word	rc522_rstpin_wrt
+ 176 000c 00000000 		.word	rc522_rst_pin_rd
+ 177              		.text
+ 178              	.Letext0:
+ 179              		.file 3 "C:/msys64/mingw64/arm-none-eabi/include/machine/_default_types.h"
+ 180              		.file 4 "C:/msys64/mingw64/arm-none-eabi/include/sys/_stdint.h"
+ 181              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103x6.h"
+ 182              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 183              		.file 7 "../../../inc/../inc/rc522_hw.h"
+ 184              		.file 8 "../../../inc/rc522.h"
+ 185              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+ 186              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 187              		.file 11 "Inc/spi.h"
+ 188              		.file 12 "Inc/gpio.h"
+ 189              		.file 13 "Inc/sysconfig.h"
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccxUacST.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s:19     .text.rc522_init:00000000 $t
-C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s:25     .text.rc522_init:00000000 rc522_init
-C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s:57     .text.rc522_init:0000001c $d
-C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s:62     .text.main:00000000 $t
-C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s:68     .text.main:00000000 main
-C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s:128    .text.main:00000044 $d
-C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s:133    .text.Error_Handler:00000000 $t
-C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s:139    .text.Error_Handler:00000000 Error_Handler
-C:\Users\binhp\AppData\Local\Temp\ccZOXH1T.s:171    .rodata:00000000 $d
+C:\Users\binhp\AppData\Local\Temp\ccxUacST.s:19     .text.rc522_init:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccxUacST.s:25     .text.rc522_init:00000000 rc522_init
+C:\Users\binhp\AppData\Local\Temp\ccxUacST.s:57     .text.rc522_init:0000001c $d
+C:\Users\binhp\AppData\Local\Temp\ccxUacST.s:62     .text.main:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccxUacST.s:68     .text.main:00000000 main
+C:\Users\binhp\AppData\Local\Temp\ccxUacST.s:127    .text.main:00000044 $d
+C:\Users\binhp\AppData\Local\Temp\ccxUacST.s:132    .text.Error_Handler:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccxUacST.s:138    .text.Error_Handler:00000000 Error_Handler
+C:\Users\binhp\AppData\Local\Temp\ccxUacST.s:170    .rodata:00000000 $d
 
 UNDEFINED SYMBOLS
-rc522_set_spi_spec
+hw_set_ops_spec
 HAL_Init
 SystemClock_Config
 MX_GPIO_Init
@@ -442,8 +439,8 @@ HAL_Delay
 rc522_init_reg
 rc522_pcd_init
 rc522_get_chip_sts
-HAL_GPIO_TogglePin
 rc522_get_chip_id
+HAL_GPIO_TogglePin
 stm32_spi_write
 stm32_spi_read
 rc522_rstpin_wrt

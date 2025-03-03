@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s 			page 1
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s 			page 1
   30:Src/gpio.c    ****   /* GPIO Ports Clock Enable */
   31:Src/gpio.c    ****   __HAL_RCC_GPIOC_CLK_ENABLE();
   32:Src/gpio.c    ****   __HAL_RCC_GPIOD_CLK_ENABLE();
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s 			page 2
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s 			page 2
 
 
   33:Src/gpio.c    ****   __HAL_RCC_GPIOA_CLK_ENABLE();
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s 			page 1
   56:Src/gpio.c    ****   {
   57:Src/gpio.c    ****     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   58              		.loc 1 57 5 is_stmt 1 view .LVU10
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s 			page 3
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s 			page 3
 
 
   59              		.loc 1 57 26 is_stmt 0 view .LVU11
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s 			page 1
  106 0000 08B5     		push	{r3, lr}
  107              	.LCFI3:
  108              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s 			page 4
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s 			page 4
 
 
  109              		.cfi_offset 3, -8
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s 			page 1
  157              		.loc 1 31 3 view .LVU27
  158 000e 1D4B     		ldr	r3, .L12
  159 0010 9A69     		ldr	r2, [r3, #24]
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s 			page 5
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s 			page 5
 
 
  160 0012 42F01002 		orr	r2, r2, #16
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s 			page 1
  199              		.loc 1 33 3 view .LVU42
   34:Src/gpio.c    **** 
  200              		.loc 1 34 3 view .LVU43
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s 			page 6
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s 			page 6
 
 
  201              	.LBB5:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s 			page 1
  240 007a FFF7FEFF 		bl	HAL_GPIO_Init
  241              	.LVL6:
   45:Src/gpio.c    **** 
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s 			page 7
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s 			page 7
 
 
  242              		.loc 1 45 1 is_stmt 0 view .LVU59
@@ -418,102 +418,104 @@ ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s 			page 1
   75:Src/gpio.c    ****   return 0;
  292              		.loc 1 75 3 view .LVU66
   76:Src/gpio.c    **** }
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s 			page 8
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s 			page 8
 
 
  293              		.loc 1 76 1 is_stmt 0 view .LVU67
  294 0018 0020     		movs	r0, #0
  295 001a 10BD     		pop	{r4, pc}
- 296              	.L17:
- 297              		.align	2
- 298              	.L16:
- 299 001c 00080140 		.word	1073809408
- 300              		.cfi_endproc
- 301              	.LFE68:
- 303              		.section	.text.rc522_rst_pin_rd,"ax",%progbits
- 304              		.align	1
- 305              		.global	rc522_rst_pin_rd
- 306              		.syntax unified
- 307              		.thumb
- 308              		.thumb_func
- 310              	rc522_rst_pin_rd:
- 311              	.LFB69:
+ 296              	.LVL12:
+ 297              	.L17:
+ 298              		.loc 1 76 1 view .LVU68
+ 299              		.align	2
+ 300              	.L16:
+ 301 001c 00080140 		.word	1073809408
+ 302              		.cfi_endproc
+ 303              	.LFE68:
+ 305              		.section	.text.rc522_rst_pin_rd,"ax",%progbits
+ 306              		.align	1
+ 307              		.global	rc522_rst_pin_rd
+ 308              		.syntax unified
+ 309              		.thumb
+ 310              		.thumb_func
+ 312              	rc522_rst_pin_rd:
+ 313              	.LFB69:
   77:Src/gpio.c    **** 
   78:Src/gpio.c    **** int rc522_rst_pin_rd(void)
   79:Src/gpio.c    **** {
- 312              		.loc 1 79 1 is_stmt 1 view -0
- 313              		.cfi_startproc
- 314              		@ args = 0, pretend = 0, frame = 0
- 315              		@ frame_needed = 0, uses_anonymous_args = 0
- 316 0000 10B5     		push	{r4, lr}
- 317              	.LCFI8:
- 318              		.cfi_def_cfa_offset 8
- 319              		.cfi_offset 4, -8
- 320              		.cfi_offset 14, -4
+ 314              		.loc 1 79 1 is_stmt 1 view -0
+ 315              		.cfi_startproc
+ 316              		@ args = 0, pretend = 0, frame = 0
+ 317              		@ frame_needed = 0, uses_anonymous_args = 0
+ 318 0000 10B5     		push	{r4, lr}
+ 319              	.LCFI8:
+ 320              		.cfi_def_cfa_offset 8
+ 321              		.cfi_offset 4, -8
+ 322              		.cfi_offset 14, -4
   80:Src/gpio.c    ****   rc522_rst_pin_init(PIN_MODE_INPUT);
- 321              		.loc 1 80 3 view .LVU69
- 322 0002 0120     		movs	r0, #1
- 323 0004 FFF7FEFF 		bl	rc522_rst_pin_init
- 324              	.LVL12:
+ 323              		.loc 1 80 3 view .LVU70
+ 324 0002 0120     		movs	r0, #1
+ 325 0004 FFF7FEFF 		bl	rc522_rst_pin_init
+ 326              	.LVL13:
   81:Src/gpio.c    ****   int result;
- 325              		.loc 1 81 3 view .LVU70
+ 327              		.loc 1 81 3 view .LVU71
   82:Src/gpio.c    ****   result = HAL_GPIO_ReadPin(RC522_RST_PORT, RC522_RST_PIN);
- 326              		.loc 1 82 3 view .LVU71
- 327              		.loc 1 82 12 is_stmt 0 view .LVU72
- 328 0008 0121     		movs	r1, #1
- 329 000a 0448     		ldr	r0, .L20
- 330 000c FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 331              	.LVL13:
- 332 0010 0446     		mov	r4, r0
+ 328              		.loc 1 82 3 view .LVU72
+ 329              		.loc 1 82 12 is_stmt 0 view .LVU73
+ 330 0008 0121     		movs	r1, #1
+ 331 000a 0448     		ldr	r0, .L20
+ 332 000c FFF7FEFF 		bl	HAL_GPIO_ReadPin
  333              	.LVL14:
+ 334 0010 0446     		mov	r4, r0
+ 335              	.LVL15:
   83:Src/gpio.c    ****   rc522_rst_pin_deinit();
- 334              		.loc 1 83 3 is_stmt 1 view .LVU73
- 335 0012 FFF7FEFF 		bl	rc522_rst_pin_deinit
- 336              	.LVL15:
+ 336              		.loc 1 83 3 is_stmt 1 view .LVU74
+ 337 0012 FFF7FEFF 		bl	rc522_rst_pin_deinit
+ 338              	.LVL16:
   84:Src/gpio.c    ****   return result;
- 337              		.loc 1 84 3 view .LVU74
+ 339              		.loc 1 84 3 view .LVU75
   85:Src/gpio.c    **** }
- 338              		.loc 1 85 1 is_stmt 0 view .LVU75
- 339 0016 2046     		mov	r0, r4
- 340 0018 10BD     		pop	{r4, pc}
- 341              	.LVL16:
- 342              	.L21:
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s 			page 9
+ 340              		.loc 1 85 1 is_stmt 0 view .LVU76
+ 341 0016 2046     		mov	r0, r4
+ 342 0018 10BD     		pop	{r4, pc}
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s 			page 9
 
 
- 343              		.loc 1 85 1 view .LVU76
- 344 001a 00BF     		.align	2
- 345              	.L20:
- 346 001c 00080140 		.word	1073809408
- 347              		.cfi_endproc
- 348              	.LFE69:
- 350              		.text
- 351              	.Letext0:
- 352              		.file 2 "C:\\ST\\STM32CubeCLT_1.17.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/12.3.1/..
- 353              		.file 3 "C:\\ST\\STM32CubeCLT_1.17.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/12.3.1/..
- 354              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103x6.h"
- 355              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
- 356              		.file 6 "Src/../Inc/gpio.h"
-ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s 			page 10
+ 343              	.LVL17:
+ 344              	.L21:
+ 345              		.loc 1 85 1 view .LVU77
+ 346 001a 00BF     		.align	2
+ 347              	.L20:
+ 348 001c 00080140 		.word	1073809408
+ 349              		.cfi_endproc
+ 350              	.LFE69:
+ 352              		.text
+ 353              	.Letext0:
+ 354              		.file 2 "C:/msys64/mingw64/arm-none-eabi/include/machine/_default_types.h"
+ 355              		.file 3 "C:/msys64/mingw64/arm-none-eabi/include/sys/_stdint.h"
+ 356              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103x6.h"
+ 357              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+ 358              		.file 6 "Src/../Inc/gpio.h"
+ARM GAS  C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 gpio.c
-C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s:19     .text.rc522_rst_pin_init:00000000 $t
-C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s:24     .text.rc522_rst_pin_init:00000000 rc522_rst_pin_init
-C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s:90     .text.rc522_rst_pin_init:00000038 $d
-C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s:95     .text.rc522_rst_pin_deinit:00000000 $t
-C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s:100    .text.rc522_rst_pin_deinit:00000000 rc522_rst_pin_deinit
-C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s:121    .text.rc522_rst_pin_deinit:0000000c $d
-C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s:126    .text.MX_GPIO_Init:00000000 $t
-C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s:132    .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s:251    .text.MX_GPIO_Init:00000084 $d
-C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s:257    .text.rc522_rstpin_wrt:00000000 $t
-C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s:263    .text.rc522_rstpin_wrt:00000000 rc522_rstpin_wrt
-C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s:299    .text.rc522_rstpin_wrt:0000001c $d
-C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s:304    .text.rc522_rst_pin_rd:00000000 $t
-C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s:310    .text.rc522_rst_pin_rd:00000000 rc522_rst_pin_rd
-C:\Users\binhp\AppData\Local\Temp\ccNKNvQa.s:346    .text.rc522_rst_pin_rd:0000001c $d
+C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s:19     .text.rc522_rst_pin_init:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s:24     .text.rc522_rst_pin_init:00000000 rc522_rst_pin_init
+C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s:90     .text.rc522_rst_pin_init:00000038 $d
+C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s:95     .text.rc522_rst_pin_deinit:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s:100    .text.rc522_rst_pin_deinit:00000000 rc522_rst_pin_deinit
+C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s:121    .text.rc522_rst_pin_deinit:0000000c $d
+C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s:126    .text.MX_GPIO_Init:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s:132    .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s:251    .text.MX_GPIO_Init:00000084 $d
+C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s:257    .text.rc522_rstpin_wrt:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s:263    .text.rc522_rstpin_wrt:00000000 rc522_rstpin_wrt
+C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s:301    .text.rc522_rstpin_wrt:0000001c $d
+C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s:306    .text.rc522_rst_pin_rd:00000000 $t
+C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s:312    .text.rc522_rst_pin_rd:00000000 rc522_rst_pin_rd
+C:\Users\binhp\AppData\Local\Temp\ccjZnUDx.s:348    .text.rc522_rst_pin_rd:0000001c $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_Init

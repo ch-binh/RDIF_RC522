@@ -31,7 +31,7 @@ void rc522_init(void) {
       .spi_write = stm32_spi_write, // replace this
       .spi_read = stm32_spi_read  // replace this
   };
-  rc522_set_spi_spec(&ops);
+  hw_set_ops_spec(&ops);
 }
 
 int main(void)
